@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:id="@+id/single">
+        <item
+            android:id="@+id/test"
+            android:icon="@mipmap/ic_launcher"
+            android:title="    测试" />
+
+    </group>
+    <group android:id="@+id/more">
+        <item
+            android:id="@+id/settings"
+            android:icon="@mipmap/ic_launcher"
+            android:title="    设置" />
+        <item
+            android:id="@+id/about"
+            android:icon="@mipmap/ic_launcher"
+            android:title="    关于" />
+    </group>
+
+
+</menu>
