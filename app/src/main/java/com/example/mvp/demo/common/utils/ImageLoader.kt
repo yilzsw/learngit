@@ -26,19 +26,19 @@ object ImageLoader {
         picasso.setIndicatorsEnabled(true)
     }
 
-    fun setImage(tag: Context, imageView: ImageView, url: String) {
+    fun setImage(tag: String, imageView: ImageView, url: String) {
         setImage(tag, imageView, url, 0)
     }
 
-    fun setImage(tag: Context, imageView: ImageView, url: String, defaultID: Int) {
+    fun setImage(tag: String, imageView: ImageView, url: String, defaultID: Int) {
         setImage(tag, imageView, url, 0, 0)
     }
 
-    fun setImage(tag: Context, imageView: ImageView, url: String, defaultID: Int, errorID: Int) {
+    fun setImage(tag: String, imageView: ImageView, url: String, defaultID: Int, errorID: Int) {
         setImage(tag, imageView, url, 0, 0, null)
     }
 
-    fun setImage(tag: Context, imageView: ImageView, url: String, defaultID: Int, errorID: Int, callBack: Callback?) {
+    fun setImage(tag: String, imageView: ImageView, url: String, defaultID: Int, errorID: Int, callBack: Callback?) {
         if (imageView == null || imageView == null || TextUtils.isEmpty(url)) {
             return
         }
@@ -69,15 +69,15 @@ object ImageLoader {
         rq.into(imageView, callBack)
     }
 
-    fun resumeTag(tag: Context) {
+    fun resumeTag(tag: String) {
         picasso.resumeTag(tag)
     }
 
-    fun pauseTag(tag: Context) {
+    fun pauseTag(tag: String) {
         picasso.pauseTag(tag)
     }
 
-    fun cancelTag(tag: Context) {
+    fun cancelTag(tag: String) {
         picasso.cancelTag(tag)
     }
 

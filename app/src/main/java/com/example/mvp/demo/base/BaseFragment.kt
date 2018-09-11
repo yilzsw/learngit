@@ -3,6 +3,7 @@ package com.example.mvp.demo.base
 import android.app.AlertDialog
 import android.os.Bundle
 import com.example.mvp.demo.base.contract.Contract
+import com.example.mvp.demo.common.utils.ImageLoader
 import com.example.mvp.demo.common.utils.ToastUtils
 import com.example.mvp.demo.common.widget.AlertDialogUtils
 import com.trello.rxlifecycle2.components.RxFragment
@@ -14,6 +15,9 @@ import com.trello.rxlifecycle2.components.RxFragment
 abstract class BaseFragment<T : Contract.IIPresenter> : RxFragment(), Contract.IView {
     private var mAlertDialog: AlertDialog? = null
     protected lateinit var mPresenter: T
+
+    protected val TAG by lazy { this.javaClass.toString() }
+
 
     override fun showLoading() {
         if (mAlertDialog != null && mAlertDialog!!.isShowing) {
@@ -54,5 +58,6 @@ abstract class BaseFragment<T : Contract.IIPresenter> : RxFragment(), Contract.I
     override fun onDestroy() {
         super.onDestroy()
         mPresenter.destroy()
+        ImageLoader.cancelTag(TAG)
     }
 }

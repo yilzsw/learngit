@@ -19,7 +19,6 @@ class HomeActivity : BaseActivity<HomePresenter>() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
         mPresenter.initData<String>()
-        nv_home_settings.context
         nv_home_settings.setNavigationItemSelectedListener {
             showMessage(it.title.toString())
             return@setNavigationItemSelectedListener true

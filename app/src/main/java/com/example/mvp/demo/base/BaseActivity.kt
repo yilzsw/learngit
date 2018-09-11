@@ -14,6 +14,8 @@ abstract class BaseActivity<T : Contract.IIPresenter> : RxAppCompatActivity(), C
 
     protected lateinit var mPresenter: T
 
+    protected val TAG by lazy { this.javaClass.toString()}
+
     private var mAlertDialog: AlertDialog? = null
     override fun showLoading() {
         if (mAlertDialog != null && mAlertDialog!!.isShowing) {
@@ -68,6 +70,6 @@ abstract class BaseActivity<T : Contract.IIPresenter> : RxAppCompatActivity(), C
         super.onDestroy()
         AppManager.finishActivity(this)
         mPresenter?.destroy()
-        ImageLoader.cancelTag(this)
+        ImageLoader.cancelTag(TAG)
     }
 }
